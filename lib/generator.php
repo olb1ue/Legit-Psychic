@@ -26,7 +26,15 @@ function load_json() {
 }
 
 function generator($user, $gr) {
-  if (!isset($gr)) $gr = mt_rand(0,4);
+  if (!isset($gr)) {
+    $lame_true = (mt_rand(0, 100) <= 10) ? TRUE :FALSE; 
+    if (!$lame_true) {
+      do {
+        $gr = mt_rand(0, 4);
+      } while ($gr == 2);
+    }
+    else $gr = 2; 
+  }
   $phrases = load_json();
 
   $tweet = '@'.$user.' '.

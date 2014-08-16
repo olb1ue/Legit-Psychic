@@ -37,7 +37,7 @@ if ($fortune_requests) {
   foreach($fortune_requests as $v) {
   $user = $v['user'];
 
-//Get requester's "gravity" if they've gotten a fortune today
+//Get requester's "gravity" if they've gotten a fortune today in order to preserve daily theme
     
   $requester_gravity = $data_helper->check_for_requester($user);
   do { 
