@@ -4,7 +4,8 @@ require 'lib/tweet_helper.php';
 require 'lib/generator.php';
 
 //error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+d
+dsfasdfsdiasdlkfj// ini_set('display_errors', 1);
 
 $data_helper = new data_helper();
 $tweet_helper = new tweet_helper();
@@ -29,7 +30,7 @@ if ($have_new_tweets) {
       $data_helper->update_mentions($v);
     }
   }
-}
+OB}
   //get requests if there are any
 $fortune_requests = $data_helper->get_haiku_requests();
 
@@ -37,7 +38,7 @@ if ($fortune_requests) {
   foreach($fortune_requests as $v) {
   $user = $v['user'];
 
-//Get requester's "gravity" if they've gotten a fortune today in order to preserve daily theme
+//Get requester's "gravity" if they've gotten a fortune today
     
   $requester_gravity = $data_helper->check_for_requester($user);
   do { 
@@ -49,8 +50,7 @@ if ($fortune_requests) {
   $tweet_response = $tweet_helper->tweet_requests($v,$tweet);
   $data_helper->mark_read($v['id']);
   $data_helper->add_requester($user, $gravity, $tweet);
-  $tweet_html = $tweet_helper->get_tweet_html( $tweet_response['id_str']);
-  echo $tweet_html;
+  echo'<pre>'; print_r($tweet_response);
   }
 }
 else echo 'no requests';

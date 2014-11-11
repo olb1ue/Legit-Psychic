@@ -44,5 +44,22 @@ class tweet_helper extends tmhOAuth {
       return null;
     }
   }
+
+  function get_tweet_html($id_str) {
+    $code = $this->user_request(array(
+      'url' => $this->url('1.1/statuses/oembed'),
+      'params' => array(
+        'id' => $id_str
+      )
+    ));
+    
+    if ($code == 200) {
+      $tweet = json_decode($this->response['response'], true);
+    }
+   
+    if (isset($tweet)) {
+      return $tweet['html'];
+    }
+  }
 }
 ?>

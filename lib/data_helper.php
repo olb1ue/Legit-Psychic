@@ -35,7 +35,7 @@ class data_helper {
   }
 
   function get_haiku_requests() {
-    $sql = 'SELECT * FROM `mentions` WHERE `tweet`= "@legitpsychic predict!" and `new` = TRUE;';
+    $sql = 'SELECT * FROM `mentions` WHERE `tweet` LIKE "%predict%" and `new` = TRUE;';
     $result = mysql_query($sql);
     if (mysql_num_rows($result)!=0) {
       while($row=mysql_fetch_array($result)){
